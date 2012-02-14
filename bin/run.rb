@@ -7,7 +7,7 @@ end
 $:.each { |n| puts n }
 
 # Require Ruby classes
-requirements = %w(java lwjgl.jar slick.jar)
+requirements = %w(rubygems bundler/setup java lwjgl.jar slick.jar)
 requirements.each do |r|
   require r
 end

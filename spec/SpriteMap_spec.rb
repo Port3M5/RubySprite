@@ -11,4 +11,15 @@ describe SpriteMap do
       expect { SpriteMap.new raw_json }.to_not raise_error
     end
   end
+  
+  describe "Get layer 0" do
+    it "Should return an array of an array of Tiles" do
+      expected = [
+        [ Tile.new :base => 0, :object => 1, :edges => [:N => 1, :E => 0, :S => 0, :W => 1], 
+          Tile.new :base => 0, :object => 1, :edges => [:N => 1, :E => 1, :S => 0, :W => 0]
+        ]
+      ]
+      expect { SpriteMap.new "./resources/spritemap.json" }.to_be expected
+    end
+  end
 end    
