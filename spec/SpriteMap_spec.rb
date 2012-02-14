@@ -1,4 +1,5 @@
 require 'SpriteMap'
+require 'json'
 
 describe SpriteMap do
   describe "Constructor" do
@@ -14,12 +15,13 @@ describe SpriteMap do
   
   describe "Get layer 0" do
     it "Should return an array of an array of Tiles" do
-      expected = [
-        [ Tile.new :base => 0, :object => 1, :edges => [:N => 1, :E => 0, :S => 0, :W => 1], 
-          Tile.new :base => 0, :object => 1, :edges => [:N => 1, :E => 1, :S => 0, :W => 0]
-        ]
-      ]
-      expect { SpriteMap.new "./resources/spritemap.json" }.to_be expected
+      sm = SpriteMap.new "./resources/spritemap.json"
+      layer = sm.get_layer(0)
+      layer.each do |y|
+        y.each do |x|
+          x.should be_a_kind_of Tile
+        end
+      end
     end
   end
 end    

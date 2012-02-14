@@ -1,7 +1,7 @@
 class Tile
   attr_accessor :base, :object, :edges
   
-  def initialize tile
+  def initialize tile = {}
     @base = tile['base']
     @object = tile['object']
     @edges = tile['edges']
