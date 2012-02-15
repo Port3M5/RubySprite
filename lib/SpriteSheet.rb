@@ -9,5 +9,4 @@ class SpriteSheet
     @baseheight = baseheight
   end
   
-  def
 end
